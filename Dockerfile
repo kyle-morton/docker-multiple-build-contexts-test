@@ -2,9 +2,10 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
 WORKDIR /app
 
 # copy csproj to workdir, restore nuggets
-COPY ConsoleApp/*.csproj ./ConsoleApp
-COPY RefProjectOne ./RefProjectOne
-COPY RefProjectTwo ./RefProjectTwo
+COPY ConsoleApp/*.csproj ./ConsoleApp/
+COPY RefProjectOne/*.csproj ./RefProjectOne/
+COPY RefProjectTwo ./RefProjectTwo/
+
 RUN dotnet restore ./ConsoleApp/ConsoleApp.csproj
 
 # # publish app to local dir
